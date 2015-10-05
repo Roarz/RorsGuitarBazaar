@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SelfHost.DTO" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SelfHost.DTO" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="clsBrand">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Brand" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Founded" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Inventory" nillable="true" type="tns:ArrayOfclsInventory" />
+      <xs:element minOccurs="0" name="Slogan" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="clsBrand" nillable="true" type="tns:clsBrand" />
+  <xs:complexType name="ArrayOfclsInventory">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="clsInventory" nillable="true" type="tns:clsInventory" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfclsInventory" nillable="true" type="tns:ArrayOfclsInventory" />
+  <xs:complexType name="clsInventory">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Brand" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CustomerOrders" nillable="true" type="tns:ArrayOfclsCustomerOrder" />
+      <xs:element minOccurs="0" name="ItemID" type="xs:int" />
+      <xs:element minOccurs="0" name="LastModified" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ModelName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Price" type="xs:decimal" />
+      <xs:element minOccurs="0" name="StockQuantity" type="xs:int" />
+      <xs:element minOccurs="0" name="Style" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="clsInventory" nillable="true" type="tns:clsInventory" />
+  <xs:complexType name="ArrayOfclsCustomerOrder">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="clsCustomerOrder" nillable="true" type="tns:clsCustomerOrder" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfclsCustomerOrder" nillable="true" type="tns:ArrayOfclsCustomerOrder" />
+  <xs:complexType name="clsCustomerOrder">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CustomerName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CustomerPhone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Inventory" nillable="true" type="tns:clsInventory" />
+      <xs:element minOccurs="0" name="ItemID" type="xs:int" />
+      <xs:element minOccurs="0" name="OrderCost" type="xs:decimal" />
+      <xs:element minOccurs="0" name="OrderID" type="xs:int" />
+      <xs:element minOccurs="0" name="OrderTimestamp" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Quantity" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="clsCustomerOrder" nillable="true" type="tns:clsCustomerOrder" />
+  <xs:complexType name="clsNew">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:clsInventory">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CountryProduced" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DateProduced" nillable="true" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="clsNew" nillable="true" type="tns:clsNew" />
+  <xs:complexType name="clsUsed">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:clsInventory">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Age" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ItemCondition" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="clsUsed" nillable="true" type="tns:clsUsed" />
+</xs:schema>

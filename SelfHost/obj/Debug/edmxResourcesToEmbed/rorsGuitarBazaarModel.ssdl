@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="rorsGuitarBazaarModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tblbrand">
+    <Key>
+      <PropertyRef Name="Brand" />
+    </Key>
+    <Property Name="Brand" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="Slogan" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="Founded" Type="varchar" MaxLength="4" />
+  </EntityType>
+  <EntityType Name="tblcustomerorder">
+    <Key>
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Name="OrderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ItemID" Type="int" Nullable="false" />
+    <Property Name="Quantity" Type="int" Nullable="false" />
+    <Property Name="OrderCost" Type="decimal" Precision="5" Scale="0" Nullable="false" />
+    <Property Name="OrderTimestamp" Type="timestamp" Precision="0" Nullable="false" />
+    <Property Name="CustomerName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CustomerPhone" Type="varchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblinventory">
+    <Key>
+      <PropertyRef Name="ItemID" />
+    </Key>
+    <Property Name="ItemID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Brand" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="ItemType" Type="varchar" MaxLength="2" />
+    <Property Name="ModelName" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="Price" Type="decimal" Precision="5" Scale="0" Nullable="false" />
+    <Property Name="LastModified" Type="timestamp" Precision="0" Nullable="false" />
+    <Property Name="StockQuantity" Type="int" Nullable="false" />
+    <Property Name="Style" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="DateProduced" Type="date" />
+    <Property Name="CountryProduced" Type="varchar" MaxLength="40" />
+    <Property Name="ItemCondition" Type="varchar" MaxLength="20" />
+    <Property Name="Age" Type="int" />
+  </EntityType>
+  <Association Name="tblcustomerorder_ibfk_1">
+    <End Role="tblinventory" Type="Self.tblinventory" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="tblcustomerorder" Type="Self.tblcustomerorder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblinventory">
+        <PropertyRef Name="ItemID" />
+      </Principal>
+      <Dependent Role="tblcustomerorder">
+        <PropertyRef Name="ItemID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="tblinventory_ibfk_1">
+    <End Role="tblbrand" Type="Self.tblbrand" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="tblinventory" Type="Self.tblinventory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblbrand">
+        <PropertyRef Name="Brand" />
+      </Principal>
+      <Dependent Role="tblinventory">
+        <PropertyRef Name="Brand" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="rorsGuitarBazaarModelStoreContainer">
+    <EntitySet Name="tblbrand" EntityType="Self.tblbrand" Schema="rorsguitarbazaar" store:Type="Tables" />
+    <EntitySet Name="tblcustomerorder" EntityType="Self.tblcustomerorder" Schema="rorsguitarbazaar" store:Type="Tables" />
+    <EntitySet Name="tblinventory" EntityType="Self.tblinventory" Schema="rorsguitarbazaar" store:Type="Tables" />
+    <AssociationSet Name="tblcustomerorder_ibfk_1" Association="Self.tblcustomerorder_ibfk_1">
+      <End Role="tblinventory" EntitySet="tblinventory" />
+      <End Role="tblcustomerorder" EntitySet="tblcustomerorder" />
+    </AssociationSet>
+    <AssociationSet Name="tblinventory_ibfk_1" Association="Self.tblinventory_ibfk_1">
+      <End Role="tblbrand" EntitySet="tblbrand" />
+      <End Role="tblinventory" EntitySet="tblinventory" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

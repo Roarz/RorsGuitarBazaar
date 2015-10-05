@@ -1,0 +1,254 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="rorsGuitarBazaarModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tblbrand">
+          <Key>
+            <PropertyRef Name="Brand" />
+          </Key>
+          <Property Name="Brand" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Slogan" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Founded" Type="varchar" MaxLength="4" />
+        </EntityType>
+        <EntityType Name="tblcustomerorder">
+          <Key>
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="OrderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ItemID" Type="int" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="OrderCost" Type="decimal" Precision="5" Scale="0" Nullable="false" />
+          <Property Name="OrderTimestamp" Type="timestamp" Precision="0" Nullable="false" />
+          <Property Name="CustomerName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CustomerPhone" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblinventory">
+          <Key>
+            <PropertyRef Name="ItemID" />
+          </Key>
+          <Property Name="ItemID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Brand" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="ItemType" Type="varchar" MaxLength="2" />
+          <Property Name="ModelName" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Price" Type="decimal" Precision="5" Scale="0" Nullable="false" />
+          <Property Name="LastModified" Type="timestamp" Precision="0" Nullable="false" />
+          <Property Name="StockQuantity" Type="int" Nullable="false" />
+          <Property Name="Style" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="DateProduced" Type="date" />
+          <Property Name="CountryProduced" Type="varchar" MaxLength="40" />
+          <Property Name="ItemCondition" Type="varchar" MaxLength="20" />
+          <Property Name="Age" Type="int" />
+        </EntityType>
+        <Association Name="tblcustomerorder_ibfk_1">
+          <End Role="tblinventory" Type="Self.tblinventory" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tblcustomerorder" Type="Self.tblcustomerorder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblinventory">
+              <PropertyRef Name="ItemID" />
+            </Principal>
+            <Dependent Role="tblcustomerorder">
+              <PropertyRef Name="ItemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tblinventory_ibfk_1">
+          <End Role="tblbrand" Type="Self.tblbrand" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tblinventory" Type="Self.tblinventory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblbrand">
+              <PropertyRef Name="Brand" />
+            </Principal>
+            <Dependent Role="tblinventory">
+              <PropertyRef Name="Brand" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="rorsGuitarBazaarModelStoreContainer">
+          <EntitySet Name="tblbrand" EntityType="Self.tblbrand" Schema="rorsguitarbazaar" store:Type="Tables" />
+          <EntitySet Name="tblcustomerorder" EntityType="Self.tblcustomerorder" Schema="rorsguitarbazaar" store:Type="Tables" />
+          <EntitySet Name="tblinventory" EntityType="Self.tblinventory" Schema="rorsguitarbazaar" store:Type="Tables" />
+          <AssociationSet Name="tblcustomerorder_ibfk_1" Association="Self.tblcustomerorder_ibfk_1">
+            <End Role="tblinventory" EntitySet="tblinventory" />
+            <End Role="tblcustomerorder" EntitySet="tblcustomerorder" />
+          </AssociationSet>
+          <AssociationSet Name="tblinventory_ibfk_1" Association="Self.tblinventory_ibfk_1">
+            <End Role="tblbrand" EntitySet="tblbrand" />
+            <End Role="tblinventory" EntitySet="tblinventory" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="rorsGuitarBazaarModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tblbrand">
+          <Key>
+            <PropertyRef Name="Brand" />
+          </Key>
+          <Property Name="Brand" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Slogan" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Founded" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tblinventories" Relationship="Self.tblinventory_ibfk_1" FromRole="tblbrand" ToRole="tblinventory" />
+        </EntityType>
+        <EntityType Name="tblcustomerorder">
+          <Key>
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="OrderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ItemID" Type="Int32" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="OrderCost" Type="Decimal" Nullable="false" />
+          <Property Name="OrderTimestamp" Type="DateTime" Nullable="false" />
+          <Property Name="CustomerName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CustomerPhone" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="tblinventory" Relationship="Self.tblcustomerorder_ibfk_1" FromRole="tblcustomerorder" ToRole="tblinventory" />
+        </EntityType>
+        <EntityType Name="tblinventory" Abstract="true">
+          <Key>
+            <PropertyRef Name="ItemID" />
+          </Key>
+          <Property Name="ItemID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Brand" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ModelName" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Price" Type="Decimal" Nullable="false" />
+          <Property Name="LastModified" Type="DateTime" Nullable="false" />
+          <Property Name="StockQuantity" Type="Int32" Nullable="false" />
+          <Property Name="Style" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="tblcustomerorders" Relationship="Self.tblcustomerorder_ibfk_1" FromRole="tblinventory" ToRole="tblcustomerorder" />
+        </EntityType>
+        <Association Name="tblinventory_ibfk_1">
+          <End Role="tblbrand" Type="Self.tblbrand" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tblinventory" Type="Self.tblinventory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblbrand">
+              <PropertyRef Name="Brand" />
+            </Principal>
+            <Dependent Role="tblinventory">
+              <PropertyRef Name="Brand" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tblcustomerorder_ibfk_1">
+          <End Role="tblinventory" Type="Self.tblinventory" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tblcustomerorder" Type="Self.tblcustomerorder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblinventory">
+              <PropertyRef Name="ItemID" />
+            </Principal>
+            <Dependent Role="tblcustomerorder">
+              <PropertyRef Name="ItemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="rorsGuitarBazaarEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tblbrands" EntityType="Self.tblbrand" />
+          <EntitySet Name="tblcustomerorders" EntityType="Self.tblcustomerorder" />
+          <EntitySet Name="tblinventories" EntityType="Self.tblinventory" />
+          <AssociationSet Name="tblinventory_ibfk_1" Association="Self.tblinventory_ibfk_1">
+            <End Role="tblbrand" EntitySet="tblbrands" />
+            <End Role="tblinventory" EntitySet="tblinventories" />
+          </AssociationSet>
+          <AssociationSet Name="tblcustomerorder_ibfk_1" Association="Self.tblcustomerorder_ibfk_1">
+            <End Role="tblinventory" EntitySet="tblinventories" />
+            <End Role="tblcustomerorder" EntitySet="tblcustomerorders" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="New" BaseType="rorsGuitarBazaarModel.tblinventory" >
+          <Property Name="DateProduced" Type="DateTime" />
+          <Property Name="CountryProduced" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Used" BaseType="rorsGuitarBazaarModel.tblinventory" >
+          <Property Name="ItemCondition" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Age" Type="Int32" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="rorsGuitarBazaarModelStoreContainer" CdmEntityContainer="rorsGuitarBazaarEntities">
+          <EntitySetMapping Name="tblbrands">
+            <EntityTypeMapping TypeName="rorsGuitarBazaarModel.tblbrand">
+              <MappingFragment StoreEntitySet="tblbrand">
+                <ScalarProperty Name="Brand" ColumnName="Brand" />
+                <ScalarProperty Name="Slogan" ColumnName="Slogan" />
+                <ScalarProperty Name="Founded" ColumnName="Founded" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblcustomerorders">
+            <EntityTypeMapping TypeName="rorsGuitarBazaarModel.tblcustomerorder">
+              <MappingFragment StoreEntitySet="tblcustomerorder">
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="OrderCost" ColumnName="OrderCost" />
+                <ScalarProperty Name="OrderTimestamp" ColumnName="OrderTimestamp" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="CustomerPhone" ColumnName="CustomerPhone" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblinventories">
+            <EntityTypeMapping TypeName="IsTypeOf(rorsGuitarBazaarModel.tblinventory)">
+              <MappingFragment StoreEntitySet="tblinventory">
+                <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+                <ScalarProperty Name="Style" ColumnName="Style" />
+                <ScalarProperty Name="StockQuantity" ColumnName="StockQuantity" />
+                <ScalarProperty Name="LastModified" ColumnName="LastModified" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="ModelName" ColumnName="ModelName" />
+                <ScalarProperty Name="Brand" ColumnName="Brand" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(rorsGuitarBazaarModel.Used)">
+              <MappingFragment StoreEntitySet="tblinventory">
+                <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="ItemCondition" ColumnName="ItemCondition" />
+                <Condition ColumnName="ItemType" Value="U" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(rorsGuitarBazaarModel.New)">
+              <MappingFragment StoreEntitySet="tblinventory">
+                <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+                <ScalarProperty Name="CountryProduced" ColumnName="CountryProduced" />
+                <ScalarProperty Name="DateProduced" ColumnName="DateProduced" />
+                <Condition ColumnName="ItemType" Value="N" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

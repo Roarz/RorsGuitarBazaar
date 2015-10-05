@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="rorsGuitarBazaarModelStoreContainer" CdmEntityContainer="rorsGuitarBazaarEntities">
+    <EntitySetMapping Name="tblbrands">
+      <EntityTypeMapping TypeName="rorsGuitarBazaarModel.tblbrand">
+        <MappingFragment StoreEntitySet="tblbrand">
+          <ScalarProperty Name="Brand" ColumnName="Brand" />
+          <ScalarProperty Name="Slogan" ColumnName="Slogan" />
+          <ScalarProperty Name="Founded" ColumnName="Founded" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblcustomerorders">
+      <EntityTypeMapping TypeName="rorsGuitarBazaarModel.tblcustomerorder">
+        <MappingFragment StoreEntitySet="tblcustomerorder">
+          <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+          <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="OrderCost" ColumnName="OrderCost" />
+          <ScalarProperty Name="OrderTimestamp" ColumnName="OrderTimestamp" />
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+          <ScalarProperty Name="CustomerPhone" ColumnName="CustomerPhone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblinventories">
+      <EntityTypeMapping TypeName="IsTypeOf(rorsGuitarBazaarModel.tblinventory)">
+        <MappingFragment StoreEntitySet="tblinventory">
+          <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+          <ScalarProperty Name="Style" ColumnName="Style" />
+          <ScalarProperty Name="StockQuantity" ColumnName="StockQuantity" />
+          <ScalarProperty Name="LastModified" ColumnName="LastModified" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="ModelName" ColumnName="ModelName" />
+          <ScalarProperty Name="Brand" ColumnName="Brand" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(rorsGuitarBazaarModel.Used)">
+        <MappingFragment StoreEntitySet="tblinventory">
+          <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="ItemCondition" ColumnName="ItemCondition" />
+          <Condition ColumnName="ItemType" Value="U" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(rorsGuitarBazaarModel.New)">
+        <MappingFragment StoreEntitySet="tblinventory">
+          <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+          <ScalarProperty Name="CountryProduced" ColumnName="CountryProduced" />
+          <ScalarProperty Name="DateProduced" ColumnName="DateProduced" />
+          <Condition ColumnName="ItemType" Value="N" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

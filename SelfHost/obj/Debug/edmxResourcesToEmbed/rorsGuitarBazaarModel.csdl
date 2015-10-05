@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="rorsGuitarBazaarModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tblbrand">
+    <Key>
+      <PropertyRef Name="Brand" />
+    </Key>
+    <Property Name="Brand" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Slogan" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Founded" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tblinventories" Relationship="Self.tblinventory_ibfk_1" FromRole="tblbrand" ToRole="tblinventory" />
+  </EntityType>
+  <EntityType Name="tblcustomerorder">
+    <Key>
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Name="OrderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ItemID" Type="Int32" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <Property Name="OrderCost" Type="Decimal" Nullable="false" />
+    <Property Name="OrderTimestamp" Type="DateTime" Nullable="false" />
+    <Property Name="CustomerName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CustomerPhone" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="tblinventory" Relationship="Self.tblcustomerorder_ibfk_1" FromRole="tblcustomerorder" ToRole="tblinventory" />
+  </EntityType>
+  <EntityType Name="tblinventory" Abstract="true">
+    <Key>
+      <PropertyRef Name="ItemID" />
+    </Key>
+    <Property Name="ItemID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Brand" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ModelName" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Price" Type="Decimal" Nullable="false" />
+    <Property Name="LastModified" Type="DateTime" Nullable="false" />
+    <Property Name="StockQuantity" Type="Int32" Nullable="false" />
+    <Property Name="Style" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="tblcustomerorders" Relationship="Self.tblcustomerorder_ibfk_1" FromRole="tblinventory" ToRole="tblcustomerorder" />
+  </EntityType>
+  <Association Name="tblinventory_ibfk_1">
+    <End Role="tblbrand" Type="Self.tblbrand" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="tblinventory" Type="Self.tblinventory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblbrand">
+        <PropertyRef Name="Brand" />
+      </Principal>
+      <Dependent Role="tblinventory">
+        <PropertyRef Name="Brand" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="tblcustomerorder_ibfk_1">
+    <End Role="tblinventory" Type="Self.tblinventory" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="tblcustomerorder" Type="Self.tblcustomerorder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblinventory">
+        <PropertyRef Name="ItemID" />
+      </Principal>
+      <Dependent Role="tblcustomerorder">
+        <PropertyRef Name="ItemID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="rorsGuitarBazaarEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tblbrands" EntityType="Self.tblbrand" />
+    <EntitySet Name="tblcustomerorders" EntityType="Self.tblcustomerorder" />
+    <EntitySet Name="tblinventories" EntityType="Self.tblinventory" />
+    <AssociationSet Name="tblinventory_ibfk_1" Association="Self.tblinventory_ibfk_1">
+      <End Role="tblbrand" EntitySet="tblbrands" />
+      <End Role="tblinventory" EntitySet="tblinventories" />
+    </AssociationSet>
+    <AssociationSet Name="tblcustomerorder_ibfk_1" Association="Self.tblcustomerorder_ibfk_1">
+      <End Role="tblinventory" EntitySet="tblinventories" />
+      <End Role="tblcustomerorder" EntitySet="tblcustomerorders" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="New" BaseType="rorsGuitarBazaarModel.tblinventory">
+    <Property Name="DateProduced" Type="DateTime" />
+    <Property Name="CountryProduced" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Used" BaseType="rorsGuitarBazaarModel.tblinventory">
+    <Property Name="ItemCondition" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Age" Type="Int32" />
+  </EntityType>
+</Schema>

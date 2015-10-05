@@ -1,0 +1,16 @@
+C:\Users\rorie-mcpherson\Documents\Visual Studio 2013\Projects\SDV701Project\SelfHost\bin\Debug\SelfHost.exe.config
+C:\Users\rorie-mcpherson\Desktop\SDV701Project - Copy\SelfHost\bin\Debug\SelfHost.exe.config
+C:\Users\rorie-mcpherson\Desktop\SDV701Project - Copy\SelfHost\bin\Debug\SelfHost.exe
+C:\Users\rorie-mcpherson\Desktop\SDV701Project - Copy\SelfHost\bin\Debug\SelfHost.pdb
+C:\Users\rorie-mcpherson\Desktop\SDV701Project - Copy\SelfHost\bin\Debug\EntityFramework.dll
+C:\Users\rorie-mcpherson\Desktop\SDV701Project - Copy\SelfHost\bin\Debug\EntityFramework.xml
+C:\Users\rorie-mcpherson\Desktop\SDV701Project - Copy\SelfHost\obj\Debug\SelfHost.csprojResolveAssemblyReference.cache
+C:\Users\rorie-mcpherson\Desktop\SDV701Project - Copy\SelfHost\obj\Debug\SelfHost.exe
+C:\Users\rorie-mcpherson\Desktop\SDV701Project - Copy\SelfHost\obj\Debug\SelfHost.pdb
+C:\Users\rorie-mcpherson\Documents\Visual Studio 2013\Projects\SDV701Project\SelfHost\obj\Debug\SelfHost.exe
+C:\Users\rorie-mcpherson\Documents\Visual Studio 2013\Projects\SDV701Project\SelfHost\obj\Debug\SelfHost.pdb
+C:\Users\rorie-mcpherson\Documents\Visual Studio 2013\Projects\SDV701Project\SelfHost\bin\Debug\SelfHost.exe
+C:\Users\rorie-mcpherson\Documents\Visual Studio 2013\Projects\SDV701Project\SelfHost\bin\Debug\SelfHost.pdb
+C:\Users\rorie-mcpherson\Documents\Visual Studio 2013\Projects\SDV701Project\SelfHost\bin\Debug\EntityFramework.dll
+C:\Users\rorie-mcpherson\Documents\Visual Studio 2013\Projects\SDV701Project\SelfHost\bin\Debug\EntityFramework.xml
+C:\Users\rorie-mcpherson\Documents\Visual Studio 2013\Projects\SDV701Project\SelfHost\obj\Debug\SelfHost.csprojResolveAssemblyReference.cache

@@ -1,0 +1,24 @@
+c:\users\rorie-mcpherson\documents\visual studio 2013\Projects\Winform Screenshot Mockup Assignment 2\Winform Screenshot Mockup Assignment 2\bin\Debug\Winform Screenshot Mockup Assignment 2.exe.config
+c:\users\rorie-mcpherson\documents\visual studio 2013\Projects\Winform Screenshot Mockup Assignment 2\Winform Screenshot Mockup Assignment 2\bin\Debug\Winform Screenshot Mockup Assignment 2.exe
+c:\users\rorie-mcpherson\documents\visual studio 2013\Projects\Winform Screenshot Mockup Assignment 2\Winform Screenshot Mockup Assignment 2\bin\Debug\Winform Screenshot Mockup Assignment 2.pdb
+c:\users\rorie-mcpherson\documents\visual studio 2013\Projects\Winform Screenshot Mockup Assignment 2\Winform Screenshot Mockup Assignment 2\obj\Debug\Winform Screenshot Mockup Assignment 2.csprojResolveAssemblyReference.cache
+c:\users\rorie-mcpherson\documents\visual studio 2013\Projects\Winform Screenshot Mockup Assignment 2\Winform Screenshot Mockup Assignment 2\obj\Debug\Winform_Screenshot_Mockup_Assignment_2.Properties.Resources.resources
+c:\users\rorie-mcpherson\documents\visual studio 2013\Projects\Winform Screenshot Mockup Assignment 2\Winform Screenshot Mockup Assignment 2\obj\Debug\Winform Screenshot Mockup Assignment 2.csproj.GenerateResource.Cache
+c:\users\rorie-mcpherson\documents\visual studio 2013\Projects\Winform Screenshot Mockup Assignment 2\Winform Screenshot Mockup Assignment 2\obj\Debug\Winform Screenshot Mockup Assignment 2.exe
+c:\users\rorie-mcpherson\documents\visual studio 2013\Projects\Winform Screenshot Mockup Assignment 2\Winform Screenshot Mockup Assignment 2\obj\Debug\Winform Screenshot Mockup Assignment 2.pdb
+c:\users\rorie-mcpherson\documents\visual studio 2013\Projects\Winform Screenshot Mockup Assignment 2\Winform Screenshot Mockup Assignment 2\obj\Debug\Winform_Screenshot_Mockup_Assignment_2.FrmInventory.resources
+c:\users\rorie-mcpherson\documents\visual studio 2013\Projects\Winform Screenshot Mockup Assignment 2\Winform Screenshot Mockup Assignment 2\obj\Debug\Winform_Screenshot_Mockup_Assignment_2.FrmMain.resources
+c:\users\rorie-mcpherson\documents\visual studio 2013\Projects\Winform Screenshot Mockup Assignment 2\Winform Screenshot Mockup Assignment 2\obj\Debug\Winform_Screenshot_Mockup_Assignment_2.FrmItemDetails.resources
+c:\users\rorie-mcpherson\documents\visual studio 2013\Projects\Winform Screenshot Mockup Assignment 2\Winform Screenshot Mockup Assignment 2\obj\Debug\Winform_Screenshot_Mockup_Assignment_2.FrmCustomerOrders.resources
+C:\Users\rorie-mcpherson\Documents\Visual Studio 2013\Projects\Screenshotsass2\Winform Screenshot Mockup Assignment 2\bin\Debug\Winform Screenshot Mockup Assignment 2.exe.config
+C:\Users\rorie-mcpherson\Documents\Visual Studio 2013\Projects\Screenshotsass2\Winform Screenshot Mockup Assignment 2\obj\Debug\Winform Screenshot Mockup Assignment 2.exe
+C:\Users\rorie-mcpherson\Documents\Visual Studio 2013\Projects\Screenshotsass2\Winform Screenshot Mockup Assignment 2\obj\Debug\Winform Screenshot Mockup Assignment 2.pdb
+C:\Users\rorie-mcpherson\Documents\Visual Studio 2013\Projects\Screenshotsass2\Winform Screenshot Mockup Assignment 2\bin\Debug\Winform Screenshot Mockup Assignment 2.exe
+C:\Users\rorie-mcpherson\Documents\Visual Studio 2013\Projects\Screenshotsass2\Winform Screenshot Mockup Assignment 2\bin\Debug\Winform Screenshot Mockup Assignment 2.pdb
+C:\Users\rorie-mcpherson\Documents\Visual Studio 2013\Projects\Screenshotsass2\Winform Screenshot Mockup Assignment 2\obj\Debug\Winform Screenshot Mockup Assignment 2.csprojResolveAssemblyReference.cache
+C:\Users\rorie-mcpherson\Documents\Visual Studio 2013\Projects\Screenshotsass2\Winform Screenshot Mockup Assignment 2\obj\Debug\Winform_Screenshot_Mockup_Assignment_2.FrmCustomerOrders.resources
+C:\Users\rorie-mcpherson\Documents\Visual Studio 2013\Projects\Screenshotsass2\Winform Screenshot Mockup Assignment 2\obj\Debug\Winform_Screenshot_Mockup_Assignment_2.FrmInventory.resources
+C:\Users\rorie-mcpherson\Documents\Visual Studio 2013\Projects\Screenshotsass2\Winform Screenshot Mockup Assignment 2\obj\Debug\Winform_Screenshot_Mockup_Assignment_2.FrmItemDetails.resources
+C:\Users\rorie-mcpherson\Documents\Visual Studio 2013\Projects\Screenshotsass2\Winform Screenshot Mockup Assignment 2\obj\Debug\Winform_Screenshot_Mockup_Assignment_2.FrmMain.resources
+C:\Users\rorie-mcpherson\Documents\Visual Studio 2013\Projects\Screenshotsass2\Winform Screenshot Mockup Assignment 2\obj\Debug\Winform_Screenshot_Mockup_Assignment_2.Properties.Resources.resources
+C:\Users\rorie-mcpherson\Documents\Visual Studio 2013\Projects\Screenshotsass2\Winform Screenshot Mockup Assignment 2\obj\Debug\Winform Screenshot Mockup Assignment 2.csproj.GenerateResource.Cache
